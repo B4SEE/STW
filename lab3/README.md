@@ -4,9 +4,9 @@ Variant 2
 
 ## Code Files
 
-- Main code file: `main.cpp`
-- Matrix operations code file: `matrix_operations.cpp`
-- Matrix operations header file: `matrix_operations.h`
+- Main code file: [`main.cpp`](main.cpp)
+- Matrix operations code file: [`matrix_operations.cpp`](matrix_operations.cpp)
+- Matrix operations header file: [`matrix_operations.h`](matrix_operations.h)
 
 ## Example Usages
 
