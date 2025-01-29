@@ -18,7 +18,7 @@ void CreateDirectories() {
 /**
  * Traverse directories
  *
- * @param path Directory path
+ * @param path - directory path
  */
 void TraverseDirectory(const std::string& path) {
     WIN32_FIND_DATA findFileData;
@@ -86,8 +86,8 @@ void SetFileAttributesAndTime() {
 /**
  * Copy files from one directory to another
  *
- * @param sourceDir Source directory
- * @param destDir Destination directory
+ * @param sourceDir - source directory
+ * @param destDir - destination directory
  */
 void CopyFiles(const std::string& sourceDir, const std::string& destDir) {
     WIN32_FIND_DATA findFileData;
@@ -115,8 +115,8 @@ void CopyFiles(const std::string& sourceDir, const std::string& destDir) {
 /**
  * Find files by extension
  *
- * @param path Directory path
- * @param extension File extension
+ * @param path - directory path
+ * @param extension - file extension
  */
 void FindFilesByExtension(const std::string& path, const std::string& extension) {
     WIN32_FIND_DATA findFileData;
@@ -137,8 +137,8 @@ void FindFilesByExtension(const std::string& path, const std::string& extension)
 /**
  * Append data to file
  *
- * @param filePath File path
- * @param data Data to append
+ * @param filePath - file path
+ * @param data - data to append
  */
 void AppendToFile(const std::string& filePath, const std::string& data) {
     HANDLE hFile = CreateFile(filePath.c_str(), FILE_APPEND_DATA, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
@@ -159,7 +159,7 @@ void AppendToFile(const std::string& filePath, const std::string& data) {
 /**
  * Find hidden files starting with 'a'
  *
- * @param path Directory path
+ * @param path - directory path
  */
 void FindHiddenFilesStartingWithA(const std::string& path) {
     WIN32_FIND_DATA findFileData;
@@ -182,7 +182,7 @@ void FindHiddenFilesStartingWithA(const std::string& path) {
 /**
  * Lock last 1 KB of file
  *
- * @param filePath File path
+ * @param filePath - file path
  */
 void LockLastKB(const std::string& filePath) {
     HANDLE hFile = CreateFile(filePath.c_str(), GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);

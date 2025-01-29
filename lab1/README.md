@@ -1,5 +1,10 @@
+Variant 2
+
+---
+
 ## Code File
-The main code file - [`main.cpp`](./main.cpp).
+
+The main code file - [`main.cpp`](main.cpp).
 
 ## Example Usages
 
