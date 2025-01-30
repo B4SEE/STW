@@ -43,9 +43,12 @@ void TraverseDirectory(const std::string& path) {
 
 /**
  * Create file in directory (FILE21/FILE22, example.txt)
+ *
+ * @param path - directory path
+ * @param fileName - file name
  */
-void CreateFileInDirectory() {
-    HANDLE hFile = CreateFile("FILE21\\FILE22\\example.txt", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+void CreateFileInDirectory(std::string path = "FILE21\\FILE22", std::string fileName = "example.txt") {
+    HANDLE hFile = CreateFile((path + "\\" + fileName).c_str(), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hFile == INVALID_HANDLE_VALUE) {
         std::cerr << "Error creating file." << std::endl;
         return;
@@ -56,10 +59,13 @@ void CreateFileInDirectory() {
 
 /**
  * Set file attributes and time (hidden, creation time)
+ *
+ * @param path - directory path
+ * @param fileName - file name
  */
-void SetFileAttributesAndTime() {
+void SetFileAttributesAndTime(std::string path = "FILE21\\FILE22", std::string fileName = "example.txt") {
     // Set file as hidden
-    if (!SetFileAttributes("FILE21\\FILE22\\example.txt", FILE_ATTRIBUTE_HIDDEN)) {
+    if (!SetFileAttributes((path + "\\" + fileName).c_str(), FILE_ATTRIBUTE_HIDDEN)) {
         std::cerr << "Error setting file attributes." << std::endl;
         return;
     }
@@ -207,5 +213,20 @@ void LockLastKB(const std::string& filePath) {
  */
 int main() {
     // Select the operation to perform
+    CreateDirectories();
+    TraverseDirectory("FILE21");
+    CreateFileInDirectory();
+    SetFileAttributesAndTime();
+    CopyFiles("FILE21\\FILE22", "FILE11\\FILE12");
+    FindFilesByExtension("FILE21\\FILE22", "txt");
+    AppendToFile("FILE21\\FILE22\\example.txt", "DATA");
+    AppendToFile("FILE21\\FILE22\\example.txt", "Variant No 2");
+
+    // Create hidden file starting with 'a' for testing
+    CreateFileInDirectory("FILE21\\FILE22", "a_example.txt");
+    SetFileAttributesAndTime("FILE21\\FILE22", "a_example.txt");
+
+    FindHiddenFilesStartingWithA("FILE21\\FILE22");
+    LockLastKB("FILE21\\FILE22\\example.txt");
     return 0;
 }
